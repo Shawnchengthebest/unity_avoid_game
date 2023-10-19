@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_Movment : MonoBehaviour
 {
@@ -29,5 +30,12 @@ public class Player_Movment : MonoBehaviour
         transform.Translate(horizontalMovement, 0, verticalMovement);
         Debug.Log(horizontalMovement);
         
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            SceneManager.LoadScene("Game");
+        }
     }
 }
